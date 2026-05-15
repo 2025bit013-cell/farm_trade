@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Market Prices</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>Market Prices</h1>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="features.html">Features</a>
+  <a href="market.html">Market Prices</a>
+  <a href="produce.html">Produce</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section>
+
+<table>
+
+<tr>
+  <th>Produce</th>
+  <th>Market</th>
+  <th>Price</th>
+</tr>
+
+<tr>
+  <td>Maize</td>
+  <td>Kampala</td>
+  <td id="maizePrice">UGX 1,500/Kg</td>
+</tr>
+
+<tr>
+  <td>Beans</td>
+  <td>Gulu</td>
+  <td id="beansPrice">UGX 3,000/Kg</td>
+</tr>
+
+<tr>
+  <td>Rice</td>
+  <td>Mbarara</td>
+  <td id="ricePrice">UGX 4,500/Kg</td>
+</tr>
+
+
+</table>
+<p id="updateTime"></p>
+
+</section>
+
+<footer>
+  <p>© 2026 Farm Trade Platform System</p>
+</footer>
+<script>
+ // Function to generate random prices
+  function updatePrices() {
+
+    // Random prices
+    let maize = Math.floor(Math.random() * 1000) + 1000;
+    let beans = Math.floor(Math.random() * 2000) + 2000;
+    let rice = Math.floor(Math.random() * 3000) + 3000;
+
+    // Update table values
+    document.getElementById("maizePrice").innerHTML = "UGX " + maize + "/Kg";
+    document.getElementById("beansPrice").innerHTML = "UGX " + beans + "/Kg";
+    document.getElementById("ricePrice").innerHTML = "UGX " + rice + "/Kg";
+
+    // Show last updated time
+    let now = new Date();
+    document.getElementById("updateTime").innerHTML =
+      "Last Updated: " + now.toLocaleTimeString();
+  }
+
+  // Update immediately when page loads
+  updatePrices();
+
+  // Update every 1 minute (60000 milliseconds)
+  setInterval(updatePrices, 60000);
+
+</script>
+
+</body>
+</html>
